@@ -1,0 +1,75 @@
+\section{Conclusion and open problems}
+\label{sec:conclusion}
+
+In this survey, we have so far discussed state-of-the-art on data-driven methods for 3D shape analysis and processing. We also presented the main concepts and methodologies used to develop such methods. We hope that this survey will act as a tutorial that will help researchers develop new data-driven algorithms related to shape analysis and processing. There are several exciting research directions that have not been sufficiently explored so far in our community that we discuss below:
+
+\paragraph*{Joint analysis of 2D and 3D data.}
+Generating 3D content from images requires building mappings from 2D to 3D space. Unfortunately, the problem remains largely ill-posed.  However, with the help vast quantities of 2D images available on the web, effective priors can be developed to map 2D visual elements or features to 3D shape and scene representations.
+Indeed, we have in fact seen recent attempts made in this very vein of thought with some success in ~\cite{Su:2014:EID,Aubry14,Li:2015:JE,Hueting:2015:CL,Su:2015:RfC}, which attempts depth estimation through joint analysis over 2D image collections and 3D model databases.  We have also seen success of the joint analysis framework in the setting of texture-data with \cite{Yumer:CST:2014}, which attempts cosegementation of textured 3D shapes.
+
+
+%Another possibility is to investigate the inverse procedure: by building connections from 3D shapes to 2D images for shape understanding. The work of image-driven shape segmentation by Wang et al. \cite{Wang:2013:PAS} is one such example. % \vangelis{moved it to the main text}
+Following this line, it would be interesting to jointly analyze and process multi-modal visual data, including depth scans and videos. The key challenge lies in the integration of heterogeneous information in a unified learning framework.
+
+\paragraph*{Better and scalable shape analysis techniques.} Many data-driven applications rely on high-quality shape analysis results, particularly shape segmentations and correspondences. We believe it is important to further advance research in both these directions. This includes designing shape analysis techniques for specific data and/or making them scalable to very large datasets, especially recently emerging large-scale richly-annotated repositories~\cite{Shapenet}.
+
+\paragraph*{From geometry to semantics and vice versa.}
+Several data-driven methods have tried to map 2D and 3D geometric data to high-level concepts, such as shape categories, semantic attributes, or part labels.
+Gathering relevant training data is a key component in achieving this aim, a task which remains a non-trivial endeavor.  Several recent promising works employ crowdsourcing to address this issue~\cite{Chen:2009:BMS,Chaudhuri:2013:ACC,lun:style:2015,liu:style:2015,Yumer:2015:SSE}.  Existing methods deal with cases where only a handful of different entities are predicted for input shapes or scenes.
+Scaling these methods to handle thousands of categories, part labels and other such entities, as well as attaining human-level performance, is an open problem.
+The opposite direction is also interesting and insufficiently explored: generating shapes and scenes based on high-level specifications such as shape styles, attributes, or even natural language.  Such approaches may even potentially be combined with further diverse inputs, such as sketches and interactive handles, in the shape-generating pipeline. WordsEye \cite{Coyne:2001:WAT} was an early attempt to bridge this gap, yet requires extensive manual mappings.
+
+\paragraph*{Understanding function from geometry.}
+The geometry of a shape is strongly related to its functionality, including the shape's relationship to human activity. Thus, analyzing shapes and scenes requires some understanding of their function. The recent works by Laga et al.~\cite{Laga:2013:GCS}, Kim et al.~\cite{Kim14} and Hu et al.~\cite{hu:icon:2015} are important
+examples of data-driven approaches that take into account functional aspects of shapes in the process of their analysis.
+In addition, data-driven methods can guide the synthesis of shapes that can be manufactured or 3D printed based on given functional specifications; an example of such an attempt is reflected in the work of Schulz et al \cite{Schulz:2014:DFE}.
+
+
+\paragraph*{Data-driven shape abstractions.}
+It is relatively easy for humans to communicate the essence of shapes with a few lines, sketches, and abstract forms. Developing methods that can build such abstractions automatically has significant applications in shape and scene visualization, artistic rendering, and shape analysis. There are a few data-driven approaches to line drawing \cite{Cole:2008:WDP,Kalogerakis:2009:DDC,Kalogerakis:2012:LHP}, saliency analysis \cite{Chen:2012:SPO}, surface abstraction \cite{Yumer:2012:CSC}, and viewpoint preferences \cite{Secord:2011:PMO} related to this goal. Matching human performance in these tasks is still a largely open problem, while synthesizing and editing shapes using shape abstractions as input remains a significant challenge.
+
+\paragraph*{Feature learning.}
+\fix{Several shape and scene processing tasks depend on engineering geometric features for points and shapes, as discussed in Section~\ref{fig:overview_seg}}. In general, it seems that some features work well in particular settings, but can fail in others.  A prevailing issue is that universal geometric descriptors - features that can serve as reliable mid or high level representations ubiquitously across all variety of shapes - do not yet exist.
+
+ Recent work in machine learning has demonstrated that powerful feature representations can be learned directly from raw input text and image data with deep architectures~\cite{Hinton:DBN:2006,Krizhevsky:ICDL:2012,zeiler:vis:2014}. These architectures are composed of multiple processing layers which learn representations of the input data at multiple levels of abstraction. These data-driven representations are optimized for processing-performance in complex interpretation tasks. Such feature learning for 3D shapes with deep architectures has recently been demonstrated in the context of shape classification \cite{Wu:3SN:2015,Su:MCN:2015,Xie:PFL:2015,Huang:2015:AS3}.
+Learning features for performing other complex high-level shape analysis and processing tasks remains an open problem.
+\input{comp_table}
+
+
+%, instead of treating different channels independently.
+%Recent advances in inductive learning might provide solutions to addressing the challenge.
+
+%transfer learning
+%~\cite{Pan:2010:STL}
+%kernel learning methods
+%~\cite{Gonen:2011:MKL}
+%, especially multiple kernel learning techniques,
+%might provide possible solutions to addressing the challenge. In addition, data from different sources may benefit each other via knowledge transfer: It may be interesting to investigate transfer learning~\cite{Pan:2010:STL} on visual data, e.g., to apply a statistical model trained on one dataset to another dataset with different feature space.
+
+
+%\paragraph*{More?}
+
+
+
+
+
+
+
+
+
+
+
+%\vangelis{I'd say not to re-discuss these methods in detail, if they are already discussed in the main text}
+%There are many attempts on this topic from the computer vision field, which are predominantly focused on the utilization of RGG-D data.
+%In the graphics field, the recent work of Su et al.~\cite{Su:2014:EID} has attempted building connection between 2D image and a collection of 3D shapes via constructing cycle-consistent mapping and such mapping is optimized completely in 3D. Such mapping correlations make the shape collection serve as the hub that links many image objects.
+%Another possibility is relying on 2D features for building the correlation. For example, Aubry et al.~\cite{Aubry14} achieve 2D-3D alinement by utilizing mid-level visual elements learned from synthesized views of 3D CAD models with colors.
+
+
+
+%\kai{Please fill in and enrich the list below...}
+%\paragraph*{Scalability issues.}
+%Data-driven methods are inherently bound up with many aspects of input data, such as scale, quality, modality, %etc., which are mainly affected by
+%data acquisition and generation techniques. For 3D data, both the capturing and modeling techniques are %experiencing fast development.
+%Such changes have led to the fast evolution of 3D geometric data in various aspects, which in turn profoundly %influences the advancement of data-driven geometry processing.
+%With such evolution proceeds, there must be many open problems emerge. We envision the development of data-%driven geometry processing by listing a set of major challenges and potential opportunities for future work.
+

@@ -1,0 +1,106 @@
+\section{Introduction}
+\label{sec:intro}
+
+%{\em
+%``The goal is to turn data into information, and information into insight.''}
+%\vspace{-5pt}
+%\begin{flushright}
+%--- Carly Fiorina
+%\end{flushright}
+
+%Recent interest on geometry processing has been moving towards high-level understanding and intelligent processing of
+%three dimensional shapes, with a general goal of discovering patterns about their compositions and structures,
+%and relating structures with semantic meanings and functionalities.
+%This momentum gives rise to the recent topic of structure-aware geometry processing~\cite{Mitra:2014:SASP}.
+%Shape structure implies human knowledge about 3D shapes in terms of part configurations.
+%Thus, a natural approach to structural shape analysis and structure-aware shape processing is knowledge-driven,
+%where structure is extracted, interpreted and represented with domain-specific knowledge incorporated.
+%Examples are like minima-rule-based heuristics for shape segmentation~\cite{Shamir:2008:SMS}, procedural models~\cite{Muller:2006:PMB}
+%and rule-based generative models~\cite{Merrell:2011:IFL} for 3D shape modeling.
+Recent interest on geometry processing of three dimensional shapes and scenes has been moving into developing algorithms that learn from data to intelligently
+perform high-level tasks of understanding and processing, and automatically produce results that are comparable to those that would be produced by humans with tedious manual effort.
+The general theme of these methods is to discover patterns about the geometry and structure of shapes and scenes, and relate them
+to high-level concepts, semantics, function and models that explain these patterns. In contrast to traditional approaches in geometry processing, these methods do not treat shapes and scenes
+in complete isolation of each other, and do not rely on manually tuned and explicitly programmed instructions.
+Instead, they jointly analyze several shapes to extract and model meaningful mappings and correlations in the data to make useful predictions.
+
+In retrospect, the idea of utilizing existing shapes to support geometry processing has been exploited and practiced for many years.
+However, most early works based on such idea are confined with the example-based paradigm, where the core concept is \emph{information transfer}.
+Typically, the input to these problems include one or multiple source/exemplar shapes possessing prescribed or pre-computed information of interest,
+as well as a target shape being analyzed or processed. The task is to build a \emph{correlation} between the source and target shapes so that
+the interesting information can be transferred from source to target. The applications of such approach range from
+%texture synthesis~\cite{Wei:2009:EBT},
+shape analysis (e.g.~\cite{Schaefer:2007:EBS}) to shape synthesis (e.g.~\cite{Ma:2014:ADS}), etc.
+
+When the number of involved 3D shapes becomes significantly large, however, geometry processing supported by existing data has been fundamentally changed.
+Besides information transfer, several new concepts emerge with new applications.
+As the amount of 3D models continues to grow, the rich variability of 3D content in existing shape repositories makes it possible to directly reuse the shapes
+or parts for constructing new shapes~\cite{Funkhouser:2004:MBE}. Such \emph{content reuse} for 3D modeling is perhaps the most straightforward consequence of big 3D geometric data,
+providing a promising approach to addressing the well-known 3D content creation bottleneck.
+More importantly, high-level understanding of shapes can be achieved via co-analyzing collections of shapes, which is based on
+a premise that shape understanding can only be reliable by observing a set of semantically related shapes instead of a single observation.
+To achieve \emph{co-analysis}, a critical step is to find the correlation between the multiple shapes in the input set, where the problem is substantially different from that in building pair-wise correlation. A key concept here is \emph{consistency} of the correlations among the entire set, with both mathematic description~\cite{Huang:2013:SDP} and semantic interpretation~\cite{Wang:2012:ACS}.
+
+
+\paragraph*{From knowledge-driven to data-driven.}
+A common approach to high-level shape understanding is knowledge-driven,
+where geometric and structural patterns are extracted and interpreted with rules or parameters specified explicitly by humans.
+Examples are like heuristics based shape analysis and procedural shape modeling.
+%and rule-based generative models (e.g.,~\cite{Merrell:2011:IFL}).
+Although being successful in many problems, the inherent limitations of knowledge-driven approach have restrained its application in more complex tasks.
+The first and foremost difficulty is that it is often uneasy to turn human knowledge
+into useful rules and relevant parameters used to model process of 3D shape understanding.
+%This is especially challenging for the task of shape understanding.
+%Human cognition about shapes and structures is mainly based on visual perception involving the grouping of individual elements into coherent patterns~\cite{Murray:2002:SPR}.
+%It is difficult to compile such visual perception activities into formulism of guidelines or constraints.
+Secondly, human experience and judgement are usually formed with limited observations which often
+can not generalize well for large data. Such generalization issue is more notable for
+3D shapes, especially those of man-made objects, which exhibit significant variations on both geometry and topology
+even within the same shape category.%~\cite{Xu:2010:SCS,Wang:2012:ACS}.
+
+Data driven modeling, on the other hand, learns the models and/or parameters from large amount of observed data.
+Its main advantage is the less dependence on prior knowledge, and consequently less reliance on hand-crafted models/parameters, making it more data-adaptive and generalizable.
+The success of data-driven approach, underlaid by machine learning techniques, relies heavily on the accessibility of large data collections.
+It is showed that increasing the training set by orders of magnitude yields significant performance improvements for common machine learning algorithms~\cite{Banko:2001:MPA}.
+With the recent developments in 3D modeling tools and acquisition techniques for 3D geometry,
+many large repositories of 3D shapes (e.g. Trimble 3D Warehouse, Aim at Shape etc.) have emerged.
+The availability of such large data collections has aroused significant interest on
+data-driven approach to 3D shape analysis and processing, and greatly stimulated its development in recent years.
+
+
+\paragraph*{Relation with structure-aware shape processing.}
+This report is closely related to the recent excellent survey on ``structure-aware shape processing'' by Mitra and co-workers~\cite{Mitra:2014:SASP},
+which concerns about works on structural analysis of 3D shapes, as well as high-level shape processing constrained with structure-preservation.
+In their work, shape structure is defined as the arrangement and relations between shape parts,
+which is analyzed through identifying shape parts, part parameters, and part relations.
+Each of the three can be determined through manual assignment, predefined model fitting and data-driven learning.
+
+Our report focuses on the line of research on data-driven geometry processing which stands well on itself as an independent direction.
+\emph{Firstly}, data-driven shape processing frequently goes beyond structure analysis.
+For example, large shape collections may benefit more diverse problems in shape understanding and processing,
+such as parametric modeling of shape space~\cite{Allen:2003:SHB,Kalogerakis:2009:DDC},
+hypothesis generation for object and scene understanding~\cite{Zia:2013:DR,Satkin:2012:DDS},
+and information transfer between multi-modal data~\cite{Wang:2013:PAS,Su:2014:EID}.
+Meanwhile, data-driven shape processing may also exploit the data-centered techniques in machine learning
+such as sparse coding~\cite{Ren:2013:HSC} and feature learning~\cite{Lai:2013:UFL},
+which are not pre-conditioned on any domain-specific or structural prior beyond raw data.
+%
+\emph{Secondly}, even within the realm of structure-aware shape processing, data-driven approach is becoming a dominant branch due
+to its theoretical and practical advantages, and the availability of large shape repositories and the fast development of machine learning techniques.
+
+\input{fig/overview.tex}
+
+\paragraph*{Vision and motivation.}
+In many fields of computer science, data-driven approach is a timely topic under the background of ``big data''.
+Although 3D geometry data is still far from being ubiquitous as compared to other data like photographs, the fast growing amount of 3D models and the recent trend of fusing 2D and 3D data have made the era of ``big visual data'' more expectable than ever. Especially in recent, the invention of commodity RGB-D camera has opened the door to low-cost, universal acquisition of 3D data, and brought new possibilities for connecting 2D and 3D data. The connection of 2D and 3D data will provide much more enriched data sources for data-driven methods.
+
+On the other hand, data-driven approach, augmented with existing 3D data collections, will in turn benefit the recognition and reconstruction of acquired 3D data, as well as the synthesis of new shapes. These newly generated data typically come with rich semantic information produced by data-driven inference, which will enhance exiting shape collections with both reusable content and training labels.
+In summary, data-driven geometry processing will close the loop from acquisition, analysis, processing to generation of 3D shapes (see Figure~\ref{fig:overview}), and will play a major role in the realization of big visual data.
+
+Recent years have witnessed a fast development of the research on data-driven geometry processing, from both computer graphics and computer vision communities, as reflected by the large body of ever-growing related works. Given the wide attention and interest, the new concepts and unique problems, as well as the new applications and potential opportunities, we believe this direction deserves a comprehensive and systematic survey.
+
+\paragraph*{Organization.}
+This survey is organized as follows. Section~\ref{sec:overview} gives a high-level overview of the general data-driven approach and discusses the specific problems of data-driven methods when dealing with 3D geometric data. The section also provides two typical mini-examples for the reader to understand the general work-flow of data-driven geometry processing. The following sections survey the various data-driven shape processing problems in detail, with the critical problems and concepts explained and discussed. Finally, we conclude by listing a set of key challenges and providing a vision on future opportunities.
+
+\paragraph*{Accompanying online resources.}
+In order to assist the readers to learn the basic algorithms through exploring existing resources, we provide an online wikipage~\cite{Wikipage}, collecting tools, source codes, together with test data for typical problems and applications on data-driven shape processing. This page will also maintain, or link to, many large data collections for both shapes and scenes, with proper classification and informative instructions. The website could serve as a starting point for those who are conducting research in this direction and possibly, and benefit a wider spectrum of researchers from related fields. 

@@ -1,0 +1,32 @@
+\begin{table}[t!]
+\small
+  \centering
+    \begin{tabular*}{0.48\textwidth}{l|c|c|c|c}
+    \hline
+    Method                & Input Data  & Shapes & Classes & Acc         \\
+    \hline
+    \hline
+    \cite{Huang:2013:FSL} & 3D Warehouse & 1206-5850 & 9-26 & 86 \\
+    \cite{Golovinskiy:2009:SBR3D} & LIDAR & 1063  & 16 & 58  \\
+    \cite{Shilane:2007:drs} & PSB & 1814 & 90 & 75 \\
+    \cite{Funkhouser:2006:pm3d} & PSB & 1814 & 90 & 83 \\
+    \cite{Barutcuoglu:2006:hscu} & PSB & 1814 & 90 & 84 \\
+    \cite{Bronstein:2011:SGGW} & SG & 715 & 13 & 89 \\
+    \cite{Litman:2014:SLBF} & SG & 715 & 13 & 91 \\
+    \cite{Li:2012:SHREC} & SHREC12 & 1200 & 60 & 88 \\
+     \cite{Li:2014:SHREC} & SHREC14 & 400-$10^4$ & 19-352 & 87\\
+%    \hline
+%    \multicolumn{5}{c}{Nearest neighbor classifier with different shape descriptors} \\
+%    \hline 
+%    \cite{Chaudhuri:2013:ACC} & supervised     & pairwise comparison  & meshes (parts) & 42-100 & 7-14 & N/A \\
+    \hline
+    \end{tabular*}
+  \caption{\rev{Performance of several methods for shape classification (the accuracy in the right-most column as measured as fraction of correctly-labeled shapes). Huang et al.~\cite{Huang:2013:FSL}
+predict fine-grained tag attributes for big collections of similar shapes. Golovinskiy et al.~\cite{Golovinskiy:2009:SBR3D}
+propose a method for classifying point clouds of objects in urban environments. The methods aimed at classifying meshes are evaluated on Princeton Shape Benchmark (PSB)~\cite{Shilane:2007:drs,Funkhouser:2006:pm3d,Barutcuoglu:2006:hscu}. To evaluate performance of the method in the presence of non-rigid deformations ShapeGoogle (SG) dataset is also commonly used~\cite{Bronstein:2011:SGGW,Litman:2014:SLBF}.
+In addition several methods can be found in regular shape retrieval challenges. The winner of 2012 challenge~\cite{Li:2012:SHREC} is ~\cite{Ohbuchi:2010:DML} and the winner of 2014 challenge~\cite{Li:2014:SHREC} is DBSVC technique, both methods use bag of features for classification. } }
+  \label{tab:classification_performance}
+\end{table}
+
+
+

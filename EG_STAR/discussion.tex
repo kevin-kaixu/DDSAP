@@ -1,0 +1,93 @@
+
+
+\section{Discussion}
+\label{sec:conclusion}
+There is no ``magic recipe'' for developing new data-driven and machine learning
+applications in geometry processing and computer graphics. Yet, there are some important considerations one needs to make in devising a data-driven method, including computational complexity, scalability, applicability issues, proper
+evaluation procedures and
+limitations. In this section, we briefly discuss these issues.%\fix
+
+
+\paragraph*{Computational complexity.}
+As explained in Section \ref{sec:overview}, data-driven shape analysis and processing algorithms generally contain several stages (Figure \ref{fig:overview}). The complexity of each stage varies and largely depends on the number of input shapes, resolution of the input shape representation (number of faces, surface points, pixels or voxels), as well as the number and type of the used geometric features. The feature extraction stage is usually executed per each shape, thus, its time complexity often tends to be linear in the number of input shapes. Local geometric features, such as surface curvature or PCA-based descriptors, are usually computed within a small neighborhood around each vertex, face, or surface point, thus their extraction depends linearly on the number of these primitives in the input shape representation. Extracting geometric features that capture less local or global information about the shape, such as shape diameter, geodesic distance-based features or heat-kernel descriptors, is often computationally more intensive i.e., super-linear in the number of primitives.
+%For example, computing exact geodesic distances over a mesh with Mitchell et al.'s algorithm \cite{Mitchell:1987:DGP} has worst case O($K^2 \log K$) time complexity, where $K$ is the number of mesh edges.
+
+During the learning and inference steps, data-driven methods usually solve an optimization problem, which involves minimizing or maximizing a function e.g., a data likelihood function. In general, optimization techniques inhabit a wide range of computational complexities. For example, if the optimization involves the least-squares solution of a linear system, as in the case of linear regression, the complexity is O($N \cdot F^2$), where $N$ is the number of input training examples and $F$ is the dimensionality of the input feature vector. If optimization is performed through a steepest descent algorithm, the complexity is $O(N \cdot F)$ per parameter update step. However, the performance of iterative optimization algorithms depends on the number of steps, which in turn varies according to their convergence properties and the function they optimize. We refer the reader to \cite{Nocedal:2006:NO,Koller:2009:PGM,Solomon:2015:NA} for an in-depth discussion on the computational complexity and convergence properties of various optimization and inference algorithms.
+
+
+
+\paragraph*{Scalability.}
+Data-driven methods are inherently bound up with the input data.
+Rapid developments in capturing and modeling techniques have engendered the growth of
+3D shape and scene repositories over recent years, which  have  in turn influenced the advancement of data-driven geometry processing.
+This is evidenced by the fact that the number of training shapes employed in data-driven geometry
+processing  techniques has grown from a few tens~\cite{Kalogerakis:2010:LMS,Sidi:2011:CS}
+to several thousands~\cite{Kim:2013:lpt,Huang:2014:FMN}. On the one hand, the increasing
+availability of 3D data can improve the accuracy and generalization of data-driven
+methods. On the other hand, issues of scalability arise. More data causes
+longer processing times, which in turn makes the debugging of such methods harder for developers. The scalability issues are further
+exacerbated by the complexity (i.e., high-dimensionality) of the 3D geometric feature representations. Potential workarounds include debugging
+the pipeline of these methods on smaller datasets before turning to larger ones,  trying simpler learning techniques before switching to more complex ones, or making use of computing clusters for executing offline steps.%\fix
+
+\paragraph*{Scope of application.}
+Not every problem in shape analysis and processing is well suited to be solved by a data-driven method. When the underlying rules, principles, and parameters can be manually and unambiguously specified in a problem, then non-data-driven  methods should be considered for it.
+For example, deforming a shape with an elastic material and known physical parameters
+and forces  can be addressed by a physics-based method rather than a data-driven one. In contrast, there are several problems in shape analysis and processing for
+which it is hard, or even impossible, to hand-design a set of rules and principles, or quantify them through manually specified parameters. This is often the case for
+problems that involve shape and scene recognition, high-level processing, structure parsing, co-analysis, reconstruction from noisy missing data, and modeling with high-level user input. Shape co-analysis (e.g., co-segmentation), in particular, requires
+estimating several possible geometric and semantic correlations among input shapes, which would be practically impossible to capture through hand-designed rules. Data-driven methods that automatically compute geometric, semantic and structural relationships in the input shapes are
+more appropriate for such co-analysis problems~\cite{Xu:2010:SCS,Huang:2011:JSS,Huang:2013:SDP}.
+Another example can be found in the problem of shape style analysis. Although humans have an
+innate sense of style similarity, it is hard to manually quantify geometric criteria
+for modeling the stylistic similarity of shapes. A style analysis algorithm whose parameters are learned through a data-driven method is much more well-suited to perform this quantification~\cite{liu:style:2015,lun:style:2015}.
+
+
+
+\paragraph*{Evaluation.}
+Correctly evaluating the predictive performance of data-driven methods should be another important consideration for researchers of such methods. A common pitfall is to evaluate the predictive performance of a data-driven method
+with the same dataset on which it was trained on (e.g., through supervised learning), or a dataset for
+which any parameters of the method were manually tuned. The risk here is that the method
+might not be able to generalize to any other datasets beyond the ones used in training
+or hand-tuning. A method that simply memorizes
+the training dataset, or overfits a model to a particular dataset, will obviously perform well there. However, if its performance on other datasets is poor, the method is effectively useless. The best practice is to introduce training and test splits of the input datasets. The models and parameters should then be learned or tuned exclusively on the training portion, and evaluated exclusively on the testing portion. To insure fair-play, it is also necessary that different data-driven methods be compared using the same training and test splits.%\fix
+
+
+
+\paragraph*{Limitations.}
+\fix{
+The data-driven approach to shape analysis and processing is bound by a few
+limitations that we summarize below. We also discuss potential workarounds to overcome some of these.
+ \begin{itemize}
+\item {\bf Generalization guarantees.} It is generally hard to provide any guarantees about the generalization performance of data-driven algorithms. In other words, when a data-driven algorithm makes use of a particular dataset for training, it is often impossible to predict how well it will generalize to other datasets beforehand. Although statistical error bounds can be provided under particular assumptions on data distributions, in particular within the context of the Probably Approximately Correct learning theory  \cite{Valiant:1984:TL} or the Bayes decision theory
+\cite{Fukunaga:1990:ISP}, these assumptions often cannot be validated in practice.
+\vspace{6pt}
+\item {\bf Complexity and scalability.} As discussed above, data-driven methods are
+computationally intensive in general. The complexity of data-driven methods depends on the number of input training shapes. As a general rule of thumb, the accuracy of data-driven methods improves with more training data.  On the other hand, this comes at a higher computational cost during training time.
+\vspace{6pt}
+\item {\bf Size of 3D shape datasets.} Despite their recent growth, the size of
+available 3D shape datasets remains much smaller than those used in computer
+vision and natural language processing (e.g., image and text datasets). As a result, overfitting remains
+a common issue with data-driven methods for 3D shape processing.
+Overfitting occurs when a learned model,
+or function, captures random error, noise, or patterns specific only to the input training dataset instead of the underlying, correct relationships in the data. It usually occurs when the learned model, or function, is excessively complex, e.g., having an extremely large number of parameters relative to the size of the training dataset. To mitigate this issue, regularization techniques can be used to favor simpler
+models and functions \cite{Ng:2004:FSL,DOMINGOS:2012:ML}. Another promising approach is to use both 3D shapes and 2D images as input
+to data-driven methods, or in other words, to perform co-analysis of image and shape
+data. We discuss this issue as one important future research direction for further
+development in data-driven methods in the next section.
+\vspace{6pt}
+\item {\bf Data collection.} Data-driven techniques rely on the availability of data for the particular problem they attempt to solve. Gathering training data for several geometry processing tasks is often not an easy task, especially when human labor is involved to process or annotate geometric data.  Although crowdsourcing Internet marketplaces, such as Amazon Mechanical Turk~\cite{amt09}, can help gather training data efficiently, online questionnaires and user studies still require careful design, monetary compensation, and participant consistency checks.
+    \vspace{6pt}
+\item {\bf From data to knowledge.}
+    Data-driven methods put particular emphasis on discovering patterns and models that explain the input data and provide useful insights to the problem being
+solved. However, these learned patterns and models might not always be readily interpretable  i.e., might not correspond to ``easy-to-understand'' rules. This
+ is a common situation when one treats the internals of the data-driven method (e.g.,
+the learning process) as a ``black box'' without first  trying to understand their exact
+functionality in detail. In general, interpreting such patterns and models requires significant time and effort.
+\end{itemize}
+}%\fix
+
+
+
+
+
+
