@@ -1,0 +1,76 @@
+\begin{table*}[t!]
+%\begin{sidewaystable}[t!]
+\scriptsize
+  \centering
+    \begin{tabular*}{\textwidth}{l|c|c|c|c|c|c|c|c|c}
+    \hline
+    \multirow{2}{*}{Work} & \multicolumn{3}{c|}{Training data} & \multicolumn{2}{c|}{Feature} & \multirow{2}{*}{Learning model/approach}& \multirow{2}{*}{Learning type} & \multirow{2}{*}{Learning outcome} & \multirow{2}{*}{Application}\\
+           \cline{2-6}
+                          & Rep. & Preproc. & Scale & Type & Sel. & \multicolumn{1}{r|}{} & \multicolumn{1}{r|}{} & \multicolumn{1}{r|}{} \\
+    \hline
+    \hline
+    \cite{Funkhouser:2005:SBR}  & Point     & No            & Thousands & Local     & No & SVM classifier                   & Supervised        & Object classifier & Classification   \\ \hline
+    \cite{Bronstein:2011:SGGW}  & Mesh      & No            & Thousands & Local     & No & Similarity Sensitive Hashing     & Supervised        & Distance metric   & Classification   \\ \hline
+    \cite{Huang:2013:FSL}       & Mesh      & Pre-align.	& Thousands	& Local     & No & Max-marginal distance learning   & Semi-supervised	& Distance metric	& Classification   \\ \hline
+    \cite{Kalogerakis:2010:LMS} &Mesh	&No	&Tens	&Local	&Yes	&Jointboost classifier	&Supervised	&Face classifier	&Segmentation \\ \hline
+    \cite{van-Kaick:2011:PKC}   &Mesh	&Yes	&Tens	&Local	&Yes	&Gentleboost classifier	&Supervised	&Face classifier	&Segmentation \\ \hline
+    \cite{Benhabiles:2011:LBE}	&Mesh	&No	&Tens	&L.\&G.	&Yes	&Adaboost classifier	&Supervised	&Boundary classifier	&Segmentation \\ \hline
+    \cite{Zhige:2014:SSL}	&Mesh	&No	&Hundreds	&Local	&Yes	&Feedforward neural networks	&Supervised	&Face/patch classifier	&Segmentation \\ \hline
+    \cite{Xu:2014:TSS}	&Mesh	&Pre-seg.	&Tens	&Local	&No	&Sparse model selection	&Supervised	&Segment similarity	&Segmentation \\ \hline
+    \cite{Lv:2012:SMS}	&Mesh	&No	&Tens	&Local	&Yes	&Entropy regularization	&Semi-supervised	&Face classifier	&Segmentation \\ \hline
+    \cite{Wang:2012:ACS}	&Mesh	&Pre-seg.	&Hundreds	&Local	&No	&Active learning	&Semi-supervised	&Segment classifier	&Segmentation \\ \hline
+    \cite{Wang:2013:PAS} &Image	&Labeled parts	&Hundreds	&Local	&No	&2D shape matching	&Supervised	&2D shape similarity	&Segmentation \\ \hline
+    \cite{Hu:2012:CSS}	&Mesh	&Over-seg.	&Tens	&Local	&Yes	&Subspace clustering	&Unsupervised	&Patch similarity	&Seg. / Corr. \\ \hline
+    \cite{Sidi:2011:CS}	&Mesh	&Pre-seg.	&Tens	&Local	&No	&Spectral clustering	&Unsupervised	&Seg. simi./classifier	&Seg. / Corr. \\ \hline
+    \cite{Xu:2010:SCS}	&Mesh	&Part	&Tens	&Struct.	&No	&Spectral clustering	&Unsupervised	&Part proportion simi.	&Seg. / Corr. \\ \hline
+    \cite{van-Kaick:2013:CHA}	&Mesh	&Part	&Tens	&Struct.	&No	&Multi-instance clustering	&Unsupervised	&Seg. hier. simi.	&Seg. / Corr. \\ \hline
+    \cite{Golovinskiy:2009:CS}	&Mesh	&No	&Tens	&Global	&No	&Global shape alignment	&Unsupervised	&Face similarity	&Seg. / Corr. \\ \hline
+    \cite{Huang:2011:JSS}	&Mesh	&Pre-seg.	&Tens	&Local	&No	&Joint part matching	&Unsupervised	&Segment similarity	&Seg. / Corr. \\ \hline
+    \cite{Huang:2014:FMN}	&Mesh	&Init. corr.	&Tens	&Global	&No	&Consistent func. map networks	&Unsupervised	&Segment similarity	&Seg. / Corr. \\ \hline
+    \cite{Kim:2013:lpt}	&Mesh	&Template	&Thousands	&Local	&No	&Shape alignment	&Semi-supervised	&Templates	&Seg. / Corr. \\ \hline
+    \cite{MATTAUSCH:2014:ODC}	&Mesh	&Over-seg.	&Hundreds	&Local	&No	&Density-based clustering	&Unsupervised	&Patch similarity	&Recognition \\ \hline
+    \cite{Nguyen:2011:CSM}   &Mesh	&Init. corr.	&Tens	&L.\&G.	&No	&Inconsistent map detection	&Unsupervised	&Point similarity	&Corr. / Expl. \\ \hline
+    \cite{Huang:2012:OAE}	&Mesh	&Init. corr.	&Tens	&L.\&G.	&No	&MRF joint matching	&Unsupervised	&Point similarity	&Corr. / Expl. \\ \hline
+    \cite{Kim:2012:FC}	&Mesh	&Pre-align.	&Tens	&Global	&No	&Spectral matrix recovery	&Unsupervised	&Point similarity	&Corr. / Expl. \\ \hline
+    \cite{Huang:2013:SDP}	&Mesh	&Init. corr.	&Tens	&Global	&No	&Low-rank matrix recovery	&Unsupervised	&Point similarity	&Corr. / Expl. \\ \hline
+    \cite{Ovsjanikov:2011:ECV}	&Mesh	&Part	&Hundreds	&Global	&No	&Manifold learning	&Unsupervised	&Parametric model	&Exploration \\ \hline
+    \cite{Rustamov:2013:SD}	&Mesh	&Map	&Tens	&None	&N/A	&Functional map analysis	&Unsupervised	&Difference operator	&Exploration \\ \hline
+    \cite{Fish:2014:MR}	&Mesh	&Labeled parts	&Hundreds	&Struct.	&No	&Kernel Density Estimation	&Supervised	&Prob. distributions	&Expl. / Synth. \\ \hline
+    \cite{Averkiou:2014:spm}	&Mesh	&\cite{Kim:2013:lpt}	&Thousands	&Struct.	&No	&Manifold learning	&Unsupervised	&Parametric models	&Expl. / Synth. \\ \hline
+    \cite{Huang:2013:QOC}	&Mesh	&No	&Hundreds	&Global	&No	&Quartet analysis and clustering	&Unsupervised	&Distance measure	&Organization \\ \hline
+    \cite{Blanz:1999:MMS}	&Mesh	&Pre-align.	&Hundreds	&Local	&No	&Principal Component Analysis	&Unsupervised	&Parametric model	&Recon. / Expl. \\ \hline
+    \cite{Allen:2003:SHB}	&Point	&Pre-align.	&Hundreds	&Local	&No	&Principal Component Analysis	&Unsupervised	&Parametric model	&Recon. / Expl. \\ \hline
+    \cite{Hasler:2009:SSR}	&Point	&Pre-align.	&Hundreds	&Local	&No	&PCA \& linear regression	&Unsupervised	&Parametric model	&Recon. / Expl. \\ \hline
+    \cite{Pauly:2005:ESC}	&Mesh	&Pre-align.	&Hundreds	&Global	&No	&Global shape alignment	&Unsupervised	&Shape similarity	&Reconstruction \\ \hline
+    \cite{Nan:2012:SAC}	&Point	&Labeled parts	&Hundreds	&Struct.	&No	&Random Forest Classifier	&Supervised	&Object classifier	&Reconstruction \\ \hline
+    \cite{Shen:2012:SRP}	&Mesh	&Labeled parts	&Tens	&Global	&No	&Part matching	&Unsupervised	&Part detector	&Reconstruction \\ \hline
+    \cite{Kim:2012:AIE}	&Point	&Labeled parts	&Tens	&Local	&No	&Joint part fitting and matching	&Unsupervised	&Object detector	&Reconstruction \\ \hline
+    \cite{Salas-Moreno:2013:SLAM}	&Mesh	&No	&Tens	&L.\&G.	&No	&Shape matching	&Unsupervised	&Object detector	&Reconstruction \\ \hline
+    \cite{Xu:2011:PMO}	&Mesh	&Labeled parts	&Tens	&Struct.	&No	&Structural shape matching	&Unsupervised	&Part detector	&Modeling \\ \hline
+    \cite{Aubry14}	&Mesh	&Projected	&Thousands	&Visual	&No	&Linear Discriminant Analysis	&Supervised	&Object detector	&Recognition \\ \hline
+    \cite{Su:2014:EID}	&Mesh	&Projected	&Tens	&Visual	&No	&Shape matching	&Unsupervised	&2D-3D correlation	&Reconstruction \\ \hline
+	\cite{Chaudhuri:2010:DDS} &Mesh	&No	&Thousands	&Global	&No	&Shape matching	&Unsupervised	&Part detector	&Modeling \\ \hline
+	\cite{Chaudhuri:2011:prabm}	&Mesh	&\cite{Kalogerakis:2010:LMS}	&Hundreds	&Local	&No	&Bayesian Network	&Unsupervised	&Part reasoning model	&Modeling \\ \hline
+	\cite{Xie:2013:S2D}	&Mesh	&Labeled parts	&Tens	&Struct.	&No	&Contextual part matching	&Unsupervised	&Part detector	&Modeling \\ \hline
+	\cite{Kalogerakis:2012:PMC}	&Mesh	&\cite{Kalogerakis:2010:LMS}	&Hundreds	&L.\&G.	&No	&Bayesian Network	&Unsupervised	&Shape reasoning model	&Synthesis \\ \hline
+	\cite{Xu:FDS:2012}	&Mesh	&Part	&Tens	&Struct.	&No	&Part matching	&Unsupervised	&Part similarity	&Synthesis \\ \hline
+	\cite{Talton:2012:LDP}	&Mesh	&Labeled parts	&Tens	&Struct.	&No	&Structured concept learning	&Unsupervised	&Probabilistic grammar	&Synthesis \\ \hline
+	\cite{Yumer:2012:CSC}	&Mesh	&No	&Tens	&Global	&No	&Shape matching	&Unsupervised	&Shape abs. similarity	&Modeling \\ \hline
+	\cite{Yumer:2014:CCH}	&Mesh	&Pre-seg.	&Tens	&Local	&No	&Segment matching	&Unsupervised	&Segment abs. simi.	&Modeling \\ \hline
+    \cite{Chaudhuri:2013:ACC}   &Mesh	&\cite{Kalogerakis:2010:LMS}	&Hundreds	&L.\&G.	&No	&SVM ranking        &Supervised	        & Ranking metric	& Model. / Expl. \\ \hline
+	\cite{Fisher:2011:CSR}	&Scene	&Labeled obj.	&Tens	&Struct.	&No	&Relevance feedback	&Supervised	&Contextual obj. simi.	&Classification \\ \hline
+    \cite{Fisher:2012:CSR}	&Scene	&Labeled obj.	&Hundreds	&Struct.	&No	&Bayesian Network	&Supervised	&Mixture models	&Synthesis \\ \hline
+    \cite{Xu:2013:S2S}	&Scene	&Labeled obj.	&Hundreds	&Struct.	&No	&Frequent subgraph mining	&Unsupervised	&Frequent obj. groups	&Modeling \\ \hline
+    \cite{Xu:2014:OHSC}	&Scene	&Labeled obj.	&Hundreds	&Struct.	&No	&Weighted subgraph mining	&Unsupervised	&Distinct obj. groups	&Org. / Expl. \\ \hline
+    \cite{Liu:2014:CCS}	&Scene	&Labeled hier.	&Tens	&Struct.	&No	&Probabilistic learning	&Supervised	&Probabilistic grammar	&Seg. / Corr. \\
+    \hline
+    \end{tabular*}%
+  \caption{\rev{Comparison of various works on data-driven shape analysis and processing.
+		   For each work, we summarize over the criterion set defined for data-driven methods: training data (encompassing data representation, preprocessing and scale),
+           feature (including feature type and whether feature selection is involved), learning model or approach, learning type (supervised, semi-supervised, and unsupervised),
+           learning outcome (e.g., a classifier or a distance metric), as well as its typical application scenario. See the text for detailed explanation of the criteria.
+           Some works employ another work as a pre-processing stage (e.g.,~\cite{Chaudhuri:2013:ACC} requires the labeled segmentation produced by~\cite{Kalogerakis:2010:LMS}).
+           There are four types of features including local geometric features (Local), global shape descriptors (Global), both local and global shape features (L.\&G.),
+           structural features (Struct.) as well as 2D visual features (Visual).}}
+  \label{tab:compare}%
+\end{table*} 
