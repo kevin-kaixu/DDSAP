@@ -12,6 +12,15 @@
 
 \documentclass{acmsiggraph}
 
+\usepackage{amsfonts,amsmath,amssymb}
+
+% text colors
+\usepackage[usenames,dvipsnames]{color}
+
+\usepackage{verbatim}
+\usepackage{multirow}
+
+\input{symbols}
 %%% Title of your article or abstract.
 
 \title{Data-Driven Shape Analysis and Processing}
@@ -26,6 +35,7 @@ Kai Xu$^{1,2}$
          $^1$ National University of Defense Technology \quad
          $^2$ Shenzhen VisuCA Key Lab / SIAT \quad
          $^3$ Adobe Research \quad
+         \\
          $^4$ Toyota Technological Institute at Chicago \quad
          $^5$ University College London \quad
          $^6$ University of Massachusetts Amherst
@@ -90,6 +100,8 @@ Kai Xu$^{1,2}$
 % end of prologue
 
 
+
+
 \def\rev#1{\textcolor{black}{#1}}
 
 \def\fix#1{\textcolor{black}{#1}}
@@ -144,8 +156,6 @@ Kai Xu$^{1,2}$
 
 \input{overview}
 
-%-------------------------------------------------------------------------
-
 \input{classification}
 
 \input{segmentation}
@@ -155,8 +165,6 @@ Kai Xu$^{1,2}$
 \input{reconstruction}
 
 \input{modeling}
-
-%\input{joint}
 
 \input{scene}
 
