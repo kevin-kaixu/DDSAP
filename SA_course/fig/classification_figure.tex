@@ -6,7 +6,7 @@
     Method                & Input Data  & Shapes & Classes & Acc         \\
     \hline
     \hline
-    \protect\cite{Huang:2013:FSL} & 3D Warehouse & 1206-5850 & 9-26 & 86 \\
+    \protect\cite{Huang:2013:FSL} & 3D Warehouse & 1206-5850 & 26 & 86 \\
     \protect\cite{Golovinskiy:2009:SBR3D} & LIDAR & 1063  & 16 & 58  \\
     \protect\cite{Shilane:2007:drs} & PSB & 1814 & 90 & 75 \\
     \protect\cite{Funkhouser:2006:pm3d} & PSB & 1814 & 90 & 83 \\
@@ -14,7 +14,10 @@
     \protect\cite{Bronstein:2011:SGGW} & SG & 715 & 13 & 89 \\
     \protect\cite{Litman:2014:SLBF} & SG & 715 & 13 & 91 \\
     \protect\cite{Li:2012:SHREC} & SHREC12 & 1200 & 60 & 88 \\
-     \protect\cite{Li:2014:SHREC} & SHREC14 & 400-$10^4$ & 19-352 & 87\\
+     \protect\cite{Li:2014:SHREC} & SHREC14 & 400-$10^4$ & 1352 & 87\\
+    \protect\cite{Wu:3SN:2015} & ModelNet40 & 48,000 & 40 & 77 \\
+     \protect\cite{Su:MCN:2015} & ModelNet40 & 48,000 & 40 & 90\\
+     \protect\cite{Su:2016aa} & ModelNet40 & 48,000 & 40 & 94 \\
 %    \hline
 %    \multicolumn{5}{c}{Nearest neighbor classifier with different shape descriptors} \\
 %    \hline 
@@ -24,9 +27,10 @@
   \caption{\rev{Performance of several methods for shape classification (the accuracy in the right-most column as measured as fraction of correctly-labeled shapes). Huang et al.~\protect\cite{Huang:2013:FSL}
 predict fine-grained tag attributes for big collections of similar shapes. Golovinskiy et al.~\protect\cite{Golovinskiy:2009:SBR3D}
 propose a method for classifying point clouds of objects in urban environments. The methods aimed at classifying meshes are evaluated on Princeton Shape Benchmark (PSB)~\protect\cite{Shilane:2007:drs,Funkhouser:2006:pm3d,Barutcuoglu:2006:hscu}. To evaluate performance of the method in the presence of non-rigid deformations ShapeGoogle (SG) dataset is also commonly used~\protect\cite{Bronstein:2011:SGGW,Litman:2014:SLBF}.
-In addition several methods can be found in regular shape retrieval challenges. The winner of 2012 challenge~\protect\cite{Li:2012:SHREC} is ~\protect\cite{Ohbuchi:2010:DML} and the winner of 2014 challenge~\protect\cite{Li:2014:SHREC} is DBSVC technique, both methods use bag of features for classification. } }
+%In addition several methods can be found in regular shape retrieval challenges~\protect\cite{Li:2012:SHREC,Li:2014:SHREC}. 
+\revnew{Several recent techniques use uniformly sampled representations (volumetric and view-based images) of 3D shapes in conjunction with neural networks~\protect\cite{Wu:3SN:2015,Su:MCN:2015,Su:2016aa}.}
+} }
   \label{tab:classification_performance}
 \end{table}
-
 
 
